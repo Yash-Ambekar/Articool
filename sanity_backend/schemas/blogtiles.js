@@ -21,5 +21,33 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: "date",
+      title: "Date",
+      type: "date",
+    },
+    {
+      name: "author",
+      title: "Author",
+      type: "string",
+    },
+    {
+      name: "about",
+      title: "About",
+      type: "string",
+    },
+    {
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [
+        {
+          name: "category",
+          title: "Category",
+          type: "string",
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+    },
   ],
 };

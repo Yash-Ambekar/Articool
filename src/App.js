@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Copyright from "./Components/copyright";
 import Navbar from "./Components/navbar3";
 import ContactUs from "./Components/ContactUs";
