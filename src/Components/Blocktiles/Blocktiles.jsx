@@ -8,8 +8,6 @@ const SinglePost = ({ title, content, imgurl }) => {
   return (
     <div className="singlePost">
       <img className="postImage" src={imgurl} alt="" />
-      
-
       <div className="blogDetails">
         <h4 className="font-bold blogTitle">{title}</h4>
         <hr className="lineSpace" />
@@ -72,48 +70,6 @@ const Blocktiles = () => {
           imgurl={urlFor(handleSinglePost().imgUrl)}
         />
       ) : (
-<<<<<<< HEAD
-        <>
-          <div className="app__work-filter">
-            {["Sports", "Fitness", "Mental Health", "All"].map(
-              (item, index) => (
-                <div
-                  key={index}
-                  className={`app__work-filter-item app__flex p-text ${
-                    activeFilter === item ? "item-active" : ""
-                  }`}
-                  onClick={() => handleWorkFilter(item)}
-                >
-                  {item}
-                </div>
-              )
-            )}
-          </div>
-
-          <motion.div
-            animate={animateCard}
-            transition={{ duration: 0.5, delayChildren: 0.5 }}
-            className="app__blogtiles"
-          >
-            {WorkFilter.map((item, index) => (
-              <motion.div
-                whileInView={{ opecity: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5, type: "tween" }}
-                key={item.title + index}
-                className="app__blogtiles-item"
-                onClick={() => setSelectedTitle(item.title)}
-              >
-                <img src={urlFor(item.imgUrl)} alt={item.title} />
-                <h2 className="bold-text" style={{ marginTop: 10 }}>
-                  {item.title}
-                </h2>
-                <p className="p-text">{item.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </>
-=======
         <div className="app__blogtiles">
           {blogtiles.map((item, index) => (
             <motion.div
@@ -136,7 +92,6 @@ const Blocktiles = () => {
             </motion.div>
           ))}
         </div>
->>>>>>> 2ea26c313ae605344dddae063b0faf6c33d53269
       )}
     </>
   );
