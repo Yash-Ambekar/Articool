@@ -8,10 +8,7 @@ const SinglePost = ({ title, content, imgurl }) => {
   return (
     <div className="singlePost">
       <img className="postImage" src={imgurl} alt="" />
-      <div className="EditIcon">
-        <i className="postIcon fas fa-edit"></i>
-        <i className="postIcon fas fa-trash-alt"></i>
-      </div>
+      
 
       <div className="blogDetails">
         <h4 className="font-bold blogTitle">{title}</h4>
