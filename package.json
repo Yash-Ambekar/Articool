@@ -10,6 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
+    "@portabletext/react": "^1.0.4",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
     "@syncfusion/ej2-react-richtexteditor": "^19.4.40",

@@ -9,9 +9,19 @@ export default {
       type: "string",
     },
     {
+      name: "summary",
+      title:"Summary",
+      type:"string",
+    },
+    {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "array",
+      of: [
+        {
+          type: "block"
+        }
+      ]
     },
     {
       name: "imgUrl",

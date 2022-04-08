@@ -3,10 +3,10 @@ import Moment from "react-moment";
 const momentDate = (props) => {
     
     const date =props.date;
-    const newDate =new Date (date.seconds*1000);
+    // const newDate =new Date (date.seconds*1000);
 
     return ( 
-        <Moment format={props.format}>{newDate}</Moment>
+        <Moment format={props.format}>{date}</Moment>
      );
 }
  

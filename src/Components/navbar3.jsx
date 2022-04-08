@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+
+import { Disclosure } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from "./Phymii_logo_3.png"
 import { Button } from "react-bootstrap";
@@ -32,7 +32,10 @@ export default function Example() {
 
   
   return (
-    <Disclosure as="nav" className="container-fluid sticky top-0 z-50 bg-sky-200">
+    <Disclosure
+      as="nav"
+      className="container-fluid sticky top-0 z-50 bg-sky-200"
+    >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -50,7 +53,6 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  
                   <img
                     className="lg:block h-15 w-auto"
                     src={logo}
@@ -61,14 +63,17 @@ export default function Example() {
                   <div className="flex space-x-3 NavElements">
                     {navigation.map((item) => (
                       <a
-                        
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          (item.href==currentHref) ? 'no-underline bg-black text-white' : 'no-underline text-black hover:bg-gray-400 hover:text-white',
-                          'no-underline px-3 py-2 rounded-md text-sm font-medium'
+                          item.href === currentHref
+                            ? "no-underline bg-black text-white"
+                            : "no-underline text-black hover:bg-gray-400 hover:text-white",
+                          "no-underline px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.href==currentHref ? 'page' : undefined}
+                        aria-current={
+                          item.href ===currentHref ? "page" : undefined
+                        }
                       >
                         {item.name}
                       </a>
@@ -77,48 +82,50 @@ export default function Example() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                >
+                <button type="button">
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="hidden md:block h-6 w-6" aria-hidden="true" />
+                  <BellIcon
+                    className="hidden md:block h-6 w-6"
+                    aria-hidden="true"
+                  />
                 </button>
 
                 {/* Profile dropdown */}
-                
-                  <div className='flex ml-2'>
-                    
-                      <span className="sr-only">Open user menu</span>
-                      {currentUser ? (
-          <>
-            <img
-              src={currentUser.photoURL}
-              alt={currentUser.displayName}
-              className="hidden md:flex m-3 h-10 rounded-circle items-center "
-            />
-            <Button
-              variant="outline-info"
-              style={{ height:"40px", fontSize: "17px", fontWeight: "bold" }}
-              onClick={handleLogout}
-              className='m-auto'
-            >
-              Log Out
-            </Button>
-          </>
-        ) : (
-          <Link to="/Login" className="Link">
-            <Button
-            variant="outline-info"
-              style={{ fontSize: "17px", fontWeight: "bold" }}
-            >
-              LOG IN
-            </Button>
-          </Link>
-        )}
-                    
-                  </div>
-                  
-                
+
+                <div className="flex ml-2">
+                  <span className="sr-only">Open user menu</span>
+                  {currentUser ? (
+                    <>
+                      <img
+                        src={currentUser.photoURL}
+                        alt={currentUser.displayName}
+                        className="hidden md:flex m-3 h-10 rounded-circle items-center "
+                      />
+                      <Button
+                        variant="outline-info"
+                        style={{
+                          height: "40px",
+                          fontSize: "17px",
+                          fontWeight: "bold",
+                        }}
+                        onClick={handleLogout}
+                        className="m-auto"
+                      >
+                        Log Out
+                      </Button>
+                    </>
+                  ) : (
+                    <Link to="/Login" className="Link">
+                      <Button
+                        variant="outline-info"
+                        style={{ fontSize: "17px", fontWeight: "bold" }}
+                        className="m-auto"
+                      >
+                        LOG IN
+                      </Button>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -131,10 +138,12 @@ export default function Example() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    (item.href==currentHref) ? 'no-underline bg-black text-white' : 'no-underline text-black hover:bg-gray-400 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.href === currentHref
+                      ? "no-underline bg-black text-white"
+                      : "no-underline text-black hover:bg-gray-400 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={(item.href==currentHref)? 'page' : undefined}
+                  aria-current={item.href === currentHref ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -144,5 +153,5 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }

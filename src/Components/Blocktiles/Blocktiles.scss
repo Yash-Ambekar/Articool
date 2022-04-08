@@ -71,7 +71,19 @@
         }
     }
 
+    .blogDescription{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+         -webkit-line-clamp: 4; 
+        -webkit-box-orient: vertical;
+    }
 
 
 
+}
+
+.About{
+    font-family: 'Times New Roman', Times, serif;
 }

@@ -3,18 +3,45 @@ import "./Blocktiles.scss";
 import ".././singlePost.css";
 import { urlFor, client } from "../../client";
 import { motion } from "framer-motion";
+import Moment from ".././Utilities/Date.jsx";
+import { PortableText } from "@portabletext/react";
 
-const SinglePost = ({ title, content, imgurl }) => {
+
+const SinglePost = ({ title, content, imgurl, date, author, about ,categories}) => {
   return (
     <div className="singlePost">
       <img className="postImage" src={imgurl} alt="" />
       <div className="blogDetails">
         <h4 className="font-bold blogTitle">{title}</h4>
+        <Moment date={date} format="lll" />
         <hr className="lineSpace" />
-        <p>{content}</p>
+        <PortableText value={content} />
         <hr className="lineSpace" />
       </div>
-        <h4 className="mx-5 p-2 bg-gray-700 h-[250px] rounded-md font-semibold About">About-</h4>
+      <h4 className="mx-5 p-3 flex bg-gray-700 h-[250px] rounded-md font-semibold About">
+        <div className="w-3/4">
+          <span className="text-md">Author - {author}</span>
+          <br />
+          <span className="font-normal text-sm aboutSection">{about}</span>
+        </div>
+        <div className="w-1/4">
+          Published on
+          <br />
+          <div className="text-[17px]">
+            <Moment date={date} format="lll" />
+          </div>
+          <br />
+          Categories  
+          <br />
+            {categories.map((category, index)=>{
+             return <div className="text-[17px]" key={index}>
+               - {category}
+             </div>
+           })}
+          <br />
+          
+        </div>
+      </h4>
     </div>
   );
 };
@@ -69,6 +96,10 @@ const Blocktiles = () => {
           title={handleSinglePost().title}
           content={handleSinglePost().description}
           imgurl={urlFor(handleSinglePost().imgUrl)}
+          date={handleSinglePost()._updatedAt}
+          author={handleSinglePost().author}
+          about={handleSinglePost().about}
+          categories={handleSinglePost().categories}
         />
       ) : (
         <div className="app__blogtiles">
@@ -89,7 +120,11 @@ const Blocktiles = () => {
               <h2 className="bold-text" style={{ marginTop: 10 }}>
                 {item.title}
               </h2>
-              <p className="p-text">{item.description}</p>
+              <br />
+              <div className="text-sm font-bold text-slate-300 dateBlog">
+                <Moment date={item._updatedAt} format="lll" />
+              </div>
+              <div className="blogDescription">{item.summary}</div>
             </motion.div>
           ))}
         </div>
