@@ -58,6 +58,7 @@ const Blocktiles = () => {
     client.fetch(query).then((data) => {
       setBlogtiles(data);
       setWorkFilter(data);
+      console.log(data);
     });
   }, []);
 
